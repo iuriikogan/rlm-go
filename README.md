@@ -1,5 +1,5 @@
-#  RLM Implementation in Golang, optimized for Cloud Run 
-
+#  RLM Implementation
+## Based on https://alexzhang13.github.io/rlm/
 
 ##  Implementation Summary
 
