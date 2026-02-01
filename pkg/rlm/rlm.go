@@ -6,10 +6,10 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/user/rlm-go/pkg/client"
-	"github.com/user/rlm-go/pkg/env"
-	"github.com/user/rlm-go/pkg/types"
-	"github.com/user/rlm-go/pkg/utils"
+	"github.com/iuriikogan/rlm-go/pkg/client"
+	"github.com/iuriikogan/rlm-go/pkg/env"
+	"github.com/iuriikogan/rlm-go/pkg/types"
+	"github.com/iuriikogan/rlm-go/pkg/utils"
 )
 
 type RLM struct {

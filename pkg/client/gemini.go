@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/user/rlm-go/pkg/types"
+	"github.com/iuriikogan/rlm-go/pkg/types"
 	"google.golang.org/genai"
 )
 

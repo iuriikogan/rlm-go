@@ -6,8 +6,8 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/user/rlm-go/pkg/client"
-	"github.com/user/rlm-go/pkg/rlm"
+	"github.com/iuriikogan/rlm-go/pkg/client"
+	"github.com/iuriikogan/rlm-go/pkg/rlm"
 )
 
 type completionRequest struct {

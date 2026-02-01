@@ -1,4 +1,4 @@
-module github.com/user/rlm-go
+module github.com/iuriikogan/rlm-go
 
 go 1.24.8
 

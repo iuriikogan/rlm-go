@@ -16,19 +16,19 @@ import (
 
 		"os/exec"
 
-	"sync"
+		"sync"
 
-	"time"
+		"time"
 
+	
 
+		"github.com/iuriikogan/rlm-go/pkg/types"
 
-	"github.com/user/rlm-go/pkg/types"
+	)
 
-)
+	
 
-
-
-type Environment interface {
+	type Environment interface {
 
 	ExecuteCode(ctx context.Context, code string) types.REPLResult
 

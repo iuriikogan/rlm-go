@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"sync"
 
-	"github.com/user/rlm-go/pkg/types"
+	"github.com/iuriikogan/rlm-go/pkg/types"
 )
 
 type LMHandler struct {
