@@ -1,6 +1,6 @@
 #  RLM Implementation
 
-#### Based on https://alexzhang13.github.io/rlm/
+#### Original Paper https://arxiv.org/abs/2512.24601, and repo https://github.com/alexzhang13/rlm
 
 ###  Implementation Summary
 
