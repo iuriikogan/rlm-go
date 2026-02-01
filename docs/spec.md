@@ -49,6 +49,27 @@ Prometheus metrics endpoint.
 *   **Availability**: `rate(rlm_http_requests_total{status=~"2.."}[5m]) / rate(rlm_http_requests_total[5m])`
 *   **Latency**: `histogram_quantile(0.95, rate(rlm_http_request_duration_seconds_bucket[5m]))`
 
+<<<<<<< HEAD
+=======
+## Internal Architecture
+
+The system uses an internal HTTP bridge (`LMHandler`) to allow the Python REPL to call back to the LLM.
+
+### Internal Endpoints (localhost only)
+
+These endpoints are used by the `llm_query` and `llm_query_batched` Python functions.
+
+#### POST /query
+Executes a single LLM completion.
+- **Request**: `{"prompt": "...", "model": "..."}`
+- **Response**: `{"response": "..."}`
+
+#### POST /query_batched
+Executes multiple LLM completions in parallel.
+- **Request**: `{"prompts": ["...", "..."], "model": "..."}`
+- **Response**: `{"responses": ["...", "..."]}`
+
+>>>>>>> fa9bdb4 (Refactor RLM-Go: Comprehensive overhaul for security, observability, and paper-based recursive logic)
 ## Security
 
 *   **Input Validation**: Prompt length and max iterations limits are disabled by configuration.

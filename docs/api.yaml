@@ -6,7 +6,21 @@ info:
 servers:
   - url: http://localhost:8080
 paths:
+<<<<<<< HEAD
 ## TODO add /metrics spec
+=======
+  /metrics:
+    get:
+      summary: Prometheus metrics
+      operationId: getMetrics
+      responses:
+        '200':
+          description: Prometheus metrics
+          content:
+            text/plain:
+              schema:
+                type: string
+>>>>>>> fa9bdb4 (Refactor RLM-Go: Comprehensive overhaul for security, observability, and paper-based recursive logic)
   /completion:
     post:
       summary: Generate a completion
