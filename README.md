@@ -44,4 +44,4 @@ curl -X POST https://[YOUR_CLOUD_RUN_URL]/completion \
 }'
 ```
 
-####  The service will autonomously execute Python code to solve the task, recursively calling Gemini if needed to analyze results, and return the final answer.
+### The service will autonomously execute Python code to solve the task, recursively calling Gemini if needed to analyze results, and return the final answer.
