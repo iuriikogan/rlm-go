@@ -6,6 +6,7 @@ info:
 servers:
   - url: http://localhost:8080
 paths:
+## TODO add /metrics spec
   /completion:
     post:
       summary: Generate a completion
