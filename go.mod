@@ -2,7 +2,10 @@ module github.com/iuriikogan/rlm-go
 
 go 1.24.8
 
-require google.golang.org/genai v1.44.0
+require (
+	github.com/prometheus/client_golang v1.23.2
+	google.golang.org/genai v1.44.0
+)
 
 require (
 	cloud.google.com/go v0.116.0 // indirect
@@ -15,8 +18,8 @@ require (
 	github.com/google/s2a-go v0.1.8 // indirect
 	github.com/googleapis/enterprise-certificate-proxy v0.3.4 // indirect
 	github.com/gorilla/websocket v1.5.3 // indirect
+	github.com/kr/text v0.2.0 // indirect
 	github.com/munnerz/goautoneg v0.0.0-20191010083416-a7dc8b61c822 // indirect
-	github.com/prometheus/client_golang v1.23.2 // indirect
 	github.com/prometheus/client_model v0.6.2 // indirect
 	github.com/prometheus/common v0.66.1 // indirect
 	github.com/prometheus/procfs v0.16.1 // indirect
