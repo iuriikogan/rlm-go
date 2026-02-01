@@ -1,14 +1,15 @@
-#  RLM Implementation in Golang, optimized for Cloud Run 
+#  RLM Implementation
 
+#### Based on https://alexzhang13.github.io/rlm/
 
-##  Implementation Summary
+###  Implementation Summary
 
    * Go Orchestrator: Replaces the Python core, managing the iterative RLM loop, LLM interactions, and REPL orchestration.
    * Persistent Python REPL: A Go-managed Python process that maintains state between code blocks within a single request. It includes an embedded HTTP server to handle recursive llm_query and llm_query_batched calls from the Python environment.
    * Gemini Integration: Uses the official google.golang.org/genai SDK for high-performance interaction with Gemini models.
    * Cloud Run Optimized: Structured as a stateless HTTP service that adheres to Cloud Run's ephemeral execution model.
 
-##  How to Deploy
+###  How to Deploy
 
    1. Set Environment Variables:
        * GEMINI_API_KEY: Your Google AI Studio or Vertex AI API key.
@@ -30,7 +31,7 @@ gcloud run deploy rlm-go \
 --allow-unauthenticated
 ```
 
-##  How to Use
+###  How to Use
 
   Send a POST request to the /completion endpoint:
 
@@ -43,4 +44,4 @@ curl -X POST https://[YOUR_CLOUD_RUN_URL]/completion \
 }'
 ```
 
-##  The service will autonomously execute Python code to solve the task, recursively calling Gemini if needed to analyze results, and return the final answer.
+####  The service will autonomously execute Python code to solve the task, recursively calling Gemini if needed to analyze results, and return the final answer.
