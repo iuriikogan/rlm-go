@@ -1,0 +1,62 @@
+openapi: 3.0.0
+info:
+  title: RLM-Go API
+  description: Recursive Language Model API
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080
+paths:
+  /completion:
+    post:
+      summary: Generate a completion
+      operationId: completion
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                prompt:
+                  type: string
+                context:
+                  type: object
+                  additionalProperties: true
+                max_iterations:
+                  type: integer
+                  default: 10
+              required:
+                - prompt
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RLMChatCompletion'
+        '400':
+          description: Invalid input
+        '500':
+          description: Internal server error
+components:
+  schemas:
+    RLMChatCompletion:
+      type: object
+      properties:
+        root_model:
+          type: string
+        prompt:
+          type: string
+        response:
+          type: string
+        execution_time:
+          type: number
+        usage_summary:
+          type: object
+          properties:
+            total_calls:
+              type: integer
+            total_input_tokens:
+              type: integer
+            total_output_tokens:
+              type: integer

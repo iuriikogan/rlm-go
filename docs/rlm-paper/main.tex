@@ -1,0 +1,180 @@
+\documentclass{article} %
+
+\usepackage{float} %
+\usepackage[ruled,vlined,linesnumbered,algo2e]{algorithm2e}
+
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+
+\definecolor{llm}{RGB}{235,242,255}
+\definecolor{REPLCOLOR}{RGB}{236,255,240}
+\definecolor{statecolor}{RGB}{60,60,60}
+\definecolor{codecolor}{RGB}{120,60,160}
+\definecolor{subrlmcolor}{RGB}{0,140,140}
+
+\SetAlgoVlined
+\DontPrintSemicolon
+
+
+\usepackage{microtype}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{booktabs}
+
+\usepackage{hyperref}
+
+
+\newcommand{\theHalgorithm}{\arabic{algorithm}}
+
+\usepackage[preprint]{icml2026}
+
+
+
+
+
+
+
+\usepackage[textsize=tiny]{todonotes}
+
+\input{includes.tex}
+
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{amsfonts}  %
+\usepackage{xcolor}  %
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{caption}
+\usepackage{siunitx}
+\usepackage[ruled]{algorithm2e}
+\usepackage{enumitem}
+\sisetup{table-format=2.2}
+
+\usepackage{listings} 
+\usepackage{xcolor}
+
+\def\UrlBreaks{\do\/\do-}
+\usepackage[capitalize,noabbrev]{cleveref}
+
+\newcommand{\score}[3]{%
+    #1 {\tiny\textcolor{gray}{(\$#2 $\pm$ \$#3)}}%
+} 
+
+\newcommand{\scoreNA}[1]{%
+    #1 {\tiny\textcolor{gray}{(N/A) $\pm$ (N/A)}}%
+}
+
+\icmltitlerunning{Recursive Language Models}
+
+\lstdefinestyle{customstyle}{
+  backgroundcolor=\color{gray!10},   %
+  basicstyle=\ttfamily\tiny, 
+  breaklines=true,                    %
+  frame=single,                       %
+  xleftmargin=10pt,                   %
+  xrightmargin=10pt,                  %
+  aboveskip=10pt,                     %
+  belowskip=10pt                      %
+}
+
+
+\newcommand{\RLM}{RLM}
+
+
+
+\newcommand{\fix}{\marginpar{FIX}}
+\newcommand{\new}{\marginpar{NEW}}
+
+
+\begin{document}
+
+\twocolumn[
+  \icmltitle{Recursive Language Models}
+
+  \begin{icmlauthorlist}
+    \icmlauthor{Alex L. Zhang}{mit}
+    \icmlauthor{Tim Kraska}{mit}
+    \icmlauthor{Omar Khattab}{mit}
+  \end{icmlauthorlist}
+
+  \icmlaffiliation{mit}{MIT CSAIL, Cambridge, MA, USA}
+
+  \icmlcorrespondingauthor{Alex L. Zhang, Omar Khattab}{altzhang@mit.edu, okhattab@mit.edu}
+
+  \icmlkeywords{Machine Learning, ICML}
+
+  \vskip 0.3in
+]
+
+\printAffiliationsAndNotice{}  %
+
+\begin{abstract}
+We study allowing large language models (LLMs) to process arbitrarily long prompts through the lens of inference-time scaling. We propose \textbf{Recursive Language Models} (\textbf{RLM}s), a general inference paradigm that treats long prompts as part of an external \textit{environment} and allows the LLM to \textit{programmatically} examine, decompose, and \textit{recursively call itself over} snippets of the prompt. 
+We find that \RLM{}s can successfully process inputs up to two orders of magnitude beyond model context windows and, even for shorter prompts, dramatically outperform the quality of vanilla frontier LLMs and common long-context scaffolds across four diverse long-context tasks while having comparable cost. 
+At a small scale, we post-train the first natively recursive language model. Our model, \textbf{RLM-Qwen3-8B}, outperforms the underlying Qwen3-8B model by $28.3\%$ on average and even approaches the quality of vanilla GPT-5 on three long-context tasks. Code is available at \url{https://github.com/alexzhang13/rlm}.
+\end{abstract}
+
+\section{Introduction} \label{sec1:introduction}
+\input{sections/sec1-intro}
+
+\section{Recursive Language Models} \label{sec3:rlm}
+\input{sections/sec3-rlm}
+
+
+\section{Scaling Long Context Tasks} \label{sec4:long-input}
+\input{sections/sec4-results}
+
+
+\section{Related Works} \label{sec6:related-works}
+\input{sections/sec6-related-works}
+
+\section{Limitations and Future Work} \label{sec7:limitations-future}
+\input{sections/sec7-limitations}
+
+\section{Conclusion} \label{sec7:conclusion}
+\input{sections/sec7-conclusion}
+
+\section{Impact Statement}\label{impact}
+This paper explores a strategy for enabling language models to solve long context problems and scaling future language model systems. The goal is to advance research on systems that can help us solve complex problems. While there are potential societal consequences of this work, we believe they are not specific to this paper and do not need to be highlighted here.
+
+\section*{Acknowledgments} \label{acknowledgments}
+\input{sections/acknowledgements}
+
+\bibliography{bibliography}
+\bibliographystyle{icml2026/icml2026}
+
+\newpage 
+
+\appendix
+\onecolumn
+\section{Additional Training Details} \label{appx5:training}
+\input{appendix/sec5-training}
+
+\section{Negative Results: Things we Tried that Did Not Work.} \label{appx0:didnt-work}
+\input{appendix/failed}
+
+\newpage
+\section{Additional Methods and Baseline Details} \label{appx3:methods}
+\input{appendix/sec3-methods}
+
+
+\newpage
+\section{Additional Benchmark Details} \label{appx4:benchmarks}
+\input{appendix/sec4-benchmarks}
+
+
+\newpage
+\section{Additional \RLM{} Trajectories} \label{appx2:examples}
+\input{appendix/sec2-examples}
+
+
+\section{Additional Runtime and Cost Analysis of \RLM{}s} \label{appx1:runtime-cost}
+\input{appendix/sec1-runtime-cost}
+
+
+\end{document}
